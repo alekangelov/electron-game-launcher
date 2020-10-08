@@ -2,15 +2,13 @@ const path = require("path");
 
 const { app, BrowserWindow } = require("electron");
 const isDev = require("electron-is-dev");
-
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 1200 + (isDev ? 635 : 0),
+    width: 1200,
     height: 720,
-    ...(!isDev ? { titleBarStyle: "hidden", frame: false } : {}),
+    ...{ titleBarStyle: "customButtonsOnHover", frame: false },
     // ...{ titleBarStyle: "hidden", frame: false },
-    transparent: true,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
@@ -25,11 +23,8 @@ function createWindow() {
       : `file://${path.join(__dirname, "../build/index.html")}`
   );
 
-  // Open the DevTools.
-  win.webContents.openDevTools();
-
   if (isDev) {
-    win.webContents.openDevTools();
+    win.webContents.openDevTools({ mode: "detach" });
   }
 }
 
