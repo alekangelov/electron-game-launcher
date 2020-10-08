@@ -1,0 +1,19 @@
+$dark: #1b1b1b;
+$primary: rgb(0, 116, 248);
+$secondary: rgb(212, 30, 182);
+$success: rgb(0, 217, 255);
+$error: rgb(255, 0, 76);
+$danger: $error;
+$alert: rgb(208, 255, 0);
+
+$spacing: 0, 0.5rem, 1rem, 2rem, 2.5rem, 3rem, 5rem, 7rem;
+
+$colors: (
+  "dark": $dark,
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "error": $error,
+  "danger": $danger,
+  "alert": $alert,
+);

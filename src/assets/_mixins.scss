@@ -1,0 +1,53 @@
+@mixin transition($transitions...) {
+  $unfoldedTransitions: ();
+  @each $transition in $transitions {
+    $unfoldedTransitions: append(
+      $unfoldedTransitions,
+      unfoldTransition($transition),
+      comma
+    );
+  }
+
+  -webkit-transition: $unfoldedTransitions;
+  transition: $unfoldedTransitions;
+}
+
+@function unfoldTransition($transition) {
+  // Default values
+  $property: all;
+  $duration: 0.25s;
+  $easing: cubic-bezier(
+    0.5,
+    0,
+    0.5,
+    1
+  ); // Browser default is ease, which is what we want
+  $delay: null; // Browser default is 0, which is what we want
+  $important: null;
+  $defaultProperties: ($property, $duration, $easing, $delay, $important);
+
+  // Grab transition properties if they exist
+  $unfoldedTransition: ();
+  @for $i from 1 through length($defaultProperties) {
+    $p: null;
+    @if $i <= length($transition) {
+      $p: nth($transition, $i);
+    } @else {
+      $p: nth($defaultProperties, $i);
+    }
+    $unfoldedTransition: append($unfoldedTransition, $p);
+  }
+
+  @return $unfoldedTransition;
+}
+
+@mixin multilineUnderlineOnHover($colors) {
+  background-image: linear-gradient($colors, $colors);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  @include transition(background-size);
+  &:hover {
+    background-size: 100% 2px;
+  }
+}

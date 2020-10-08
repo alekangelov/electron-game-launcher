@@ -2,19 +2,36 @@
   "name": "games-launcher",
   "version": "0.1.0",
   "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "electron-is-dev": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
   },
+  "devDependencies": {
+    "@rescripts/cli": "^0.0.14",
+    "@rescripts/rescript-env": "^0.0.12",
+    "concurrently": "^5.3.0",
+    "electron": "^10.1.3",
+    "electron-builder": "^22.8.1",
+    "node-sass": "^4.14.1",
+    "wait-on": "^5.2.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn electron\"",
+    "electron": "wait-on tcp:3000 && electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "ebuild": "yarn build && electron-builder",
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "react-scripts eject",
+    "e-pack": "yarn build && electron-builder -w"
   },
   "eslintConfig": {
     "extends": "react-app"

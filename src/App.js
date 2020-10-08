@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./assets/index.scss";
+import TitleBar from "./Components/TitleBar";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TitleBar />
+      <div className="wrapper fullscreen">
+        <div className="row row-fix">
+          <div className="col-sm-3 fullscreen">Navigation</div>
+          <div className="col-sm-9 fullscreen">Main Content</div>
+        </div>
+      </div>
     </div>
   );
 }

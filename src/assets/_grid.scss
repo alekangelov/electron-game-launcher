@@ -1,0 +1,228 @@
+$xs: 512px;
+$sm: 769px;
+$md: 1100px;
+$lg: 1440px;
+$tk: 2047px;
+$fk: 3839px;
+
+@mixin for-phone {
+  @media screen and (max-width: $xs) {
+    @content;
+  }
+}
+@mixin for-tablet {
+  @media screen and (max-width: $sm) {
+    @content;
+  }
+}
+@mixin for-laptop {
+  @media screen and (max-width: $md) {
+    @content;
+  }
+}
+@mixin for-desktop {
+  @media screen and (max-width: $lg) {
+    @content;
+  }
+}
+@mixin for-2k {
+  @media screen and (min-width: $tk) {
+    @content;
+  }
+}
+@mixin for-4k {
+  @media screen and (min-width: $fk) {
+    @content;
+  }
+}
+
+$directions: (
+  "t": "top",
+  "b": "bottom",
+  "l": "left",
+  "r": "right",
+);
+
+$i: 0;
+@each $spacingF in $spacing {
+  @each $name, $value in $directions {
+    // @debug ".m-#{$name}-#{$i} {margin-#{$value}: #{$spacingF}}";
+    // @debug "#{$name}, name";
+    // @debug "#{$spacing}, spacing";
+    // @debug "#{$i}, i";
+    .m-#{$name}-0 {
+      margin-#{$value}: 0 !important;
+    }
+    .m-#{$name}-#{$i} {
+      margin-#{$value}: #{$spacingF} !important;
+      @include for-4k {
+        margin-#{$value}: #{$spacingF * 2} !important;
+      }
+      @include for-desktop {
+        margin-#{$value}: #{$spacingF/1.5} !important;
+      }
+      @include for-laptop {
+        margin-#{$value}: #{$spacingF/2} !important;
+      }
+    }
+    .p-#{$name}-#{$i} {
+      padding-#{$value}: #{$spacingF} !important;
+      @include for-4k {
+        padding-#{$value}: #{$spacingF * 2} !important;
+      }
+      @include for-desktop {
+        padding-#{$value}: #{$spacingF/1.5} !important;
+      }
+      @include for-laptop() {
+        padding-#{$value}: #{$spacingF/2} !important;
+      }
+    }
+  }
+  $i: $i + 1;
+}
+$i: 0;
+@each $name, $value in $directions {
+  .m-#{$name}-auto {
+    margin-#{$value}: auto;
+  }
+  .p-#{$name}-auto {
+    padding-#{$value}: auto;
+  }
+}
+
+$viewport-layouts: (
+  "xxs": 0,
+  "xs": $xs,
+  "sm": $sm,
+  "md": $md,
+  "lg": $lg,
+  "2k": $tk,
+  "4k": $fk,
+);
+
+$columns: 12;
+
+$gutter-width: 1rem;
+$half-gutter-width: $gutter-width / 2;
+$gutter-compensation: -1 * $half-gutter-width;
+
+$singleWidth: percent(12);
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100%;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  margin-right: $gutter-compensation;
+  margin-left: $gutter-compensation;
+  &.row-fix {
+    width: calc(100% + #{$half-gutter-width});
+  }
+}
+
+.row-btn {
+  button {
+    &:first-child {
+      margin-right: 2rem;
+    }
+  }
+}
+
+@each $name, $point in $viewport-layouts {
+  @for $i from 0 through $columns {
+    $width: percentage($i/$columns);
+    .col-#{$name}-#{$i} {
+      display: block;
+      max-width: 100%;
+      //   margin-bottom: $gutter-width;
+      padding-right: $half-gutter-width;
+      padding-left: $half-gutter-width;
+    }
+    @media screen and (min-width: $point) {
+      .offset-#{$name}-#{$i} {
+        margin-left: $width;
+      }
+      .col-#{$name}-#{$i} {
+        flex: 0 0 $width;
+        max-width: $width;
+        padding-right: $half-gutter-width;
+        padding-left: $half-gutter-width;
+      }
+    }
+  }
+  @media screen and (max-width: $point) {
+    .img-#{$name}-fullscreen {
+      width: calc(100% + 2 * 5vw);
+      max-width: unset;
+      margin-left: -5vw;
+    }
+  }
+}
+
+.full-height {
+  min-height: 60vh;
+  margin-top: 10vh;
+  &.centered {
+    display: grid;
+    place-items: center;
+  }
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+.flex-column {
+  flex-direction: column;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.align-center {
+  align-items: center;
+}
+.align-stretch {
+  align-items: stretch;
+}
+.align-start {
+  align-items: flex-start;
+}
+.align-end {
+  align-items: flex-end;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+
+.m-center {
+  margin: 0 auto;
+}
+
+.h-100 {
+  height: 100%;
+}
