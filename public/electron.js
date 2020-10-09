@@ -1,4 +1,5 @@
 const path = require("path");
+var os = require("os");
 
 const { app, BrowserWindow } = require("electron");
 const isDev = require("electron-is-dev");
@@ -7,7 +8,9 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1200,
     height: 720,
-    ...{ titleBarStyle: "customButtonsOnHover", frame: false },
+    ...(os.platform() !== "linux"
+      ? { titleBarStyle: "customButtonsOnHover", frame: false }
+      : {}),
     // ...{ titleBarStyle: "hidden", frame: false },
     webPreferences: {
       nodeIntegration: true,

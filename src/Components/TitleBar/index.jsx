@@ -9,7 +9,6 @@ const win = (function () {
     return {};
   }
 })();
-console.log(win.isMaximized());
 export default function TitleBar() {
   return (
     <div id="title-bar">

@@ -1,4 +1,5 @@
 @font-face {
+  @debug url("./SFProDisplay-SemiboldItalic.woff2");
   font-family: "SF Pro Display";
   src: url("./SFProDisplay-SemiboldItalic.woff2") format("woff2"),
     url("./SFProDisplay-SemiboldItalic.woff") format("woff");
@@ -11,7 +12,7 @@
   font-family: "SF Pro Display";
   src: url("./SFProDisplay-Black.woff2") format("woff2"),
     url("./SFProDisplay-Black.woff") format("woff");
-  font-weight: 900;
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
@@ -20,7 +21,7 @@
   font-family: "SF Pro Display";
   src: url("./SFProDisplay-Thin.woff2") format("woff2"),
     url("./SFProDisplay-Thin.woff") format("woff");
-  font-weight: 100;
+  font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
@@ -47,7 +48,7 @@
   font-family: "SF Pro Display";
   src: url("./SFProDisplay-Heavy.woff2") format("woff2"),
     url("./SFProDisplay-Heavy.woff") format("woff");
-  font-weight: 900;
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -110,7 +111,7 @@
   font-family: "SF Pro Display";
   src: url("./SFProDisplay-HeavyItalic.woff2") format("woff2"),
     url("./SFProDisplay-HeavyItalic.woff") format("woff");
-  font-weight: 900;
+  font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
@@ -119,7 +120,7 @@
   font-family: "SF Pro Display";
   src: url("./SFProDisplay-Ultralight.woff2") format("woff2"),
     url("./SFProDisplay-Ultralight.woff") format("woff");
-  font-weight: 200;
+  font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
@@ -137,7 +138,7 @@
   font-family: "SF Pro Display";
   src: url("./SFProDisplay-UltralightItalic.woff2") format("woff2"),
     url("./SFProDisplay-UltralightItalic.woff") format("woff");
-  font-weight: 200;
+  font-weight: 100;
   font-style: italic;
   font-display: swap;
 }
@@ -146,7 +147,7 @@
   font-family: "SF Pro Display";
   src: url("./SFProDisplay-ThinItalic.woff2") format("woff2"),
     url("./SFProDisplay-ThinItalic.woff") format("woff");
-  font-weight: 100;
+  font-weight: 200;
   font-style: italic;
   font-display: swap;
 }

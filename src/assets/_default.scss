@@ -4,6 +4,8 @@
   box-sizing: border-box;
   font-family: inherit;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -18,13 +20,13 @@ body {
 #root {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .App {
   width: 100vw;
-  height: calc(100vh - 2rem);
-  padding: 1rem 0;
+  // height: calc(100vh - 2rem);
+  // padding: 1rem 0;
 }
 
 .fullscreen {
@@ -95,4 +97,9 @@ button {
     transition: 0s;
     filter: brightness(0.8);
   }
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }

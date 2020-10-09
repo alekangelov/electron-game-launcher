@@ -1,0 +1,41 @@
+.navigation {
+  height: 100%;
+  border-right: 1px solid rgba(white, 0.1);
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: stretch;
+  &-col {
+    & + & {
+      margin-top: nth($spacing, 3);
+    }
+    padding: nth($spacing, 2) 0;
+    opacity: 0.5;
+    align-items: center;
+    @include clickable();
+    @include transition(opacity);
+    &.user {
+      margin-bottom: nth($spacing, 4);
+
+      img {
+        width: 36px;
+        height: 36px;
+        border-radius: 100%;
+      }
+    }
+    &:hover {
+      opacity: 1;
+    }
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__header {
+      opacity: 1;
+      margin-top: nth($spacing, 4);
+
+      align-items: center;
+    }
+  }
+}

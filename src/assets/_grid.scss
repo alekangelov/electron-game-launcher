@@ -118,15 +118,11 @@ $singleWidth: percent(12);
   display: flex;
   flex-flow: row wrap;
   box-sizing: border-box;
-  width: 100%;
   display: flex;
   flex: 0 1 auto;
   flex-wrap: wrap;
   margin-right: $gutter-compensation;
   margin-left: $gutter-compensation;
-  &.row-fix {
-    width: calc(100% + #{$half-gutter-width});
-  }
 }
 
 .row-btn {
@@ -175,6 +171,9 @@ $singleWidth: percent(12);
     display: grid;
     place-items: center;
   }
+}
+.pos-relative {
+  position: relative;
 }
 
 .d-block {

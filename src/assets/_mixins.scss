@@ -51,3 +51,10 @@
     background-size: 100% 2px;
   }
 }
+
+@mixin clickable {
+  cursor: pointer;
+  &:active {
+    filter: brightness(0.8);
+  }
+}
