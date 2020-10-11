@@ -4,8 +4,17 @@ import { LogoIcon } from "../../assets/Icons";
 import { Link, useLocation } from "react-router-dom";
 
 function SingleLink({ link = "", icon, label, className }) {
+  const { pathname } = useLocation();
+
   return (
-    <Link to={link} className={makeClasses("row navigation-col", className)}>
+    <Link
+      to={link}
+      className={makeClasses(
+        "row navigation-col",
+        className,
+        pathname === link && "active"
+      )}
+    >
       <div className="col-md-4 navigation-col__icon">
         <img src={icon} />
       </div>
@@ -50,7 +59,6 @@ const Links = [
 ];
 
 export default function Navigation() {
-  const location = useLocation();
   return (
     <div className="navigation">
       <div className="navigation-top">

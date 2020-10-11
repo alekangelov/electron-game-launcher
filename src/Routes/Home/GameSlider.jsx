@@ -101,7 +101,7 @@ export default function GameSlider() {
           </div>
           <div className="row">
             <div className="col-md-12">
-              <Link>
+              <Link to="/singleGame">
                 <span className="d-flex align-center">
                   Learn More
                   <span className="m-l-3">

@@ -13,7 +13,7 @@ const AnimatedSwitch = () => {
     initial: null,
     from: {
       opacity: 0,
-      transform: `translate(0px, 0px)`,
+      transform: `translate(-100px, 0px)`,
     },
     enter: {
       opacity: 1,
@@ -21,9 +21,10 @@ const AnimatedSwitch = () => {
     },
     leave: {
       opacity: 0,
-      transform: `translate(0px, 100px)`,
+      transform: `translate(100px, 0)`,
       position: "absolute",
       width: "100%",
+      height: "max-content",
     },
   });
   return (

@@ -33,7 +33,7 @@ export default function Home() {
         {Array(4)
           .fill(0)
           .map((e, i) => (
-            <div className="col-md-3 m-t-4">
+            <div key={i + "singleRealease"} className="col-md-3 m-t-4">
               <div className="card card__release"></div>
             </div>
           ))}

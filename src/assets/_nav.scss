@@ -23,7 +23,8 @@
         border-radius: 100%;
       }
     }
-    &:hover {
+    &:hover,
+    &.active {
       opacity: 1;
     }
     &__icon {
