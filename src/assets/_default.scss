@@ -103,3 +103,90 @@ a {
   color: white;
   text-decoration: none;
 }
+
+img {
+  max-width: 100%;
+}
+
+.gslider {
+  background: $opaque;
+  border-radius: nth($spacing, 2);
+  overflow: hidden;
+  height: 400px;
+  &-image {
+    display: flex;
+    overflow: hidden;
+    img {
+      height: 350px;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-content {
+    padding: nth($spacing, 3);
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    overflow: hidden;
+    a {
+      text-transform: uppercase;
+    }
+    p {
+      font-family: SF Pro Display;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 200%;
+      /* or 19px */
+
+      display: flex;
+      align-items: center;
+
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+  &-index {
+    display: flex;
+    list-style: none;
+    width: max-content;
+    margin-left: auto;
+    &__item {
+      width: nth($spacing, 2);
+      height: nth($spacing, 2);
+      border-radius: 100%;
+      background: white;
+      transform-origin: center center;
+      transform: scale(1);
+      cursor: pointer;
+      @include transition(border, background, transform);
+      & + & {
+        margin-left: nth($spacing, 3);
+      }
+      &.active {
+        border: 1px solid white;
+        transform: scale(2);
+        background: transparent;
+      }
+    }
+  }
+}
+
+.card {
+  background: $opaque;
+  border-radius: nth($spacing, 2);
+  overflow: hidden;
+  &__release {
+    padding-top: 150%;
+    width: 100%;
+  }
+}
+
+.page-container {
+  max-height: 100vh;
+  overflow-y: scroll;
+  padding: 2rem 0;
+  @include scrollbars(10px, rgba(white, 0.1), rgba(white, 0.2), $dark);
+}

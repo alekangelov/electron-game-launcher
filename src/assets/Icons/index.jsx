@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 export function MinusIcon() {
   return (
@@ -73,5 +73,38 @@ export function LogoIcon() {
         d="M45.888 30.956H33.853l-1.143 5.37h4.438c-.553 2.133-2.552 3.79-5.028 3.79-3.256 0-5.027-2.228-5.027-5.808 0-5.675 2.951-9.903 7.103-9.903 2.514 0 4.227 1.486 4.38 3.428h7.731c.02-.152.038-.419.038-.61 0-4.798-4.875-9.178-11.92-9.178-9.141 0-15.54 6.932-15.54 16.605 0 7.16 4.951 11.826 12.283 11.826 7.788 0 12.854-4.418 14.225-12.587l.495-2.933z"
       ></path>
     </svg>
+  );
+}
+
+export function Chevron({ direction = "left" }) {
+  const rotation = useMemo(() => {
+    switch (direction) {
+      case "up":
+        return -90;
+      case "right":
+        return -180;
+      case "down":
+        return -270;
+      default:
+        return 0;
+    }
+  }, [direction]);
+  return (
+    <span style={{ display: "flex", transform: `rotate(${rotation}deg)` }}>
+      <svg
+        width="12"
+        height="12"
+        viewBox="0 0 12 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M2.51404 5.65685L6.28528 1.88562C6.63241 1.53848 6.63241 0.975672 6.28528 0.628539C5.93814 0.281407 5.37533 0.281407 5.0282 0.62854L-0.000116069 5.65685L5.0282 10.6852C5.37533 11.0323 5.93815 11.0323 6.28528 10.6852C6.63241 10.338 6.63241 9.77522 6.28528 9.42809L2.51404 5.65685Z"
+          fill="white"
+        />
+      </svg>
+    </span>
   );
 }

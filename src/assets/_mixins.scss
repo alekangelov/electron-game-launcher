@@ -58,3 +58,34 @@
     filter: brightness(0.8);
   }
 }
+
+@mixin scrollbars(
+  $size,
+  $foreground-color,
+  $foreground-hover,
+  $background-color: mix($foreground-color, white, 50%)
+) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 20rem;
+    &:hover {
+      background: $foreground-hover;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}

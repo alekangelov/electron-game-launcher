@@ -42,3 +42,31 @@ p {
     font-weight: 600;
   }
 }
+
+h6 {
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+  /* identical to box height */
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.09em;
+
+  color: rgba(255, 255, 255, 0.5);
+}
+
+h1 {
+  font-family: SF Pro Display;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+  color: #ffffff;
+}

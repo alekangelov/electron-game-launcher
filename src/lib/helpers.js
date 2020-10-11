@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 export async function delay(seconds = 0) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -26,27 +26,30 @@ export function useOutsideAlerterRef(onClick, dependencies = []) {
   /**
    * Alert if clicked on outside of element
    */
-  function handleClickOutside(event) {
-    if (
-      ref.current &&
-      !ref.current.contains(event.target) &&
-      !dependencies.filter((x) => {
-        if (!x) {
-          return false;
-        }
-        try {
-          return Boolean(x.current.contains(event.target));
-        } catch (e) {
-          if (x) {
-            return Boolean(x.contains(event.target));
+  const handleClickOutside = useCallback(
+    (event) => {
+      if (
+        ref.current &&
+        !ref.current.contains(event.target) &&
+        !dependencies.filter((x) => {
+          if (!x) {
+            return false;
           }
-          return false;
-        }
-      }).length
-    ) {
-      onClick(event);
-    }
-  }
+          try {
+            return Boolean(x.current.contains(event.target));
+          } catch (e) {
+            if (x) {
+              return Boolean(x.contains(event.target));
+            }
+            return false;
+          }
+        }).length
+      ) {
+        onClick(event);
+      }
+    },
+    [onClick, dependencies]
+  );
 
   useEffect(() => {
     // Bind the event listener
