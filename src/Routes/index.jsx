@@ -1,10 +1,11 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, useLocation } from "react-router-dom";
+import { HashRouter, Route, Switch, useLocation } from "react-router-dom";
 import { useTransition, a } from "react-spring";
 import Navigation from "../Components/Navigation";
 import Friends from "./Friends";
 import Home from "./Home";
 import Library from "./Library";
+import Settings from "./Settings";
 
 const AnimatedSwitch = () => {
   const location = useLocation();
@@ -37,6 +38,7 @@ const AnimatedSwitch = () => {
                 <Route path="/" exact component={Home} />
                 <Route path="/library" exact component={Library} />
                 <Route path="/friends" exact component={Friends} />
+                <Route path="/settings" exact component={Settings} />
               </Switch>
             </a.div>
           );
@@ -48,7 +50,7 @@ const AnimatedSwitch = () => {
 
 export default function Routes({ children }) {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="row row-fix">
         <div className="col-sm-3 fullscreen">
           <Navigation />
@@ -57,6 +59,6 @@ export default function Routes({ children }) {
           <AnimatedSwitch />
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "custom-electron-titlebar": "^3.2.4",
     "electron-is-dev": "^1.2.0",
+    "formik": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -30,12 +31,19 @@
     "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn electron\"",
     "electron": "wait-on tcp:3000 && electron .",
     "postinstall": "electron-builder install-app-deps",
-    "ebuild": "yarn build && electron-builder",
     "start": "rescripts start",
     "build": "rescripts build",
     "test": "rescripts test",
     "eject": "react-scripts eject",
     "e-pack": "yarn build && electron-builder -w"
+  },
+  "build": {
+    "appId": "com.alekangelov.games-launcher",
+    "productName": "Games Launcher",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"

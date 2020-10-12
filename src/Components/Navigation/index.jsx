@@ -2,7 +2,6 @@ import React from "react";
 import { makeClasses } from "../../lib/helpers";
 import { LogoIcon } from "../../assets/Icons";
 import { Link, useLocation } from "react-router-dom";
-
 function SingleLink({ link = "", icon, label, className }) {
   const { pathname } = useLocation();
 
